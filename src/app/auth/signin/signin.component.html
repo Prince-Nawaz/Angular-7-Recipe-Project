@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form (ngSubmit)="onSignin(f)" #f="ngForm">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text" name="email" id="email" class="form-control" ngModel required email #email="ngModel">
+          <span class="help-block" *ngIf="!email.valid && email.touched">
+            <span *ngIf="email.hasError('required')">Email ID is required.</span>
+            <span *ngIf="email.hasError('email')">Please enter a valid Email ID.</span>
+          </span>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" class="form-control"
+            ngModel required #password="ngModel" minlength="6">
+            <span class="help-block" *ngIf="!password.valid && password.touched">
+                <span *ngIf="password.hasError('required')">Password is required.</span>
+                <span *ngIf="password.hasError('minlength') && (password.errors['minlength'].actualLength < 6)">Please enter valid password of minimum 6 characters.</span>
+            </span>
+        </div>
+        <span class="help-block" *ngIf="!f.valid && f.touched">Please enter valid form data.</span>
+        <button class="btn btn-success" type="submit" [disabled]="!f.valid">Sign In</button>
+      </form>
+    </div>
+  </div>
