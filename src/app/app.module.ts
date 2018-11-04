@@ -16,6 +16,7 @@ import { AuthEffects } from './auth/store/auth.effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent
@@ -23,6 +24,7 @@ import { environment } from '../environments/environment';
   imports: [
     BrowserModule.withServerTransition({ appId: 'my-app'}),
     // HttpModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     ShoppingListModule,
     AuthModule,
